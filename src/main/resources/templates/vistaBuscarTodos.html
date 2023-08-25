@@ -1,35 +1,83 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.thymeleaf.org">
 
 <head>
 
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>My Website</title>
+	<title>Buscar Todos</title>
+	<!importar una hoja de estilo>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+			integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 
-	<style>
-		body {
-			background-image: url('https://i0.wp.com/www.sinembargo.mx/wp-content/uploads/2015/08/Sin-t%C3%ADtulo1.png?resize=700%2C370&quality=80&strip=all');
-			background-size: cover;
-			/* Ajustar la imagen al tamaño de la ventana */
-			background-repeat: no-repeat;
-			/* Evitar que la imagen se repita */
-			background-attachment: fixed;
-			/* Fijar la imagen de fondo al desplazarse */
-		}
+		<style>
+			body {
+				background-image: url('https://s1.1zoom.me/big3/617/Stars_yuuko-sanNight_451532.jpg');
+				background-size: cover;
+				/* Ajustar la imagen al tamaño de la ventana */
+				background-repeat: no-repeat;
+				/* Evitar que la imagen se repita */
+				background-attachment: fixed;
+				/* Fijar la imagen de fondo al desplazarse */
+			}
 
-		h1 {
-			color: floralwhite; /* Cambia el color del texto a rojo */
-		}
-	</style>
+			h1 {
+				color: floralwhite;
+				/* Cambia el color del texto a rojo */
+			}
+
+
+			table {
+				width: 100%;
+				border-collapse: collapse;
+				background-color: #f9f9f9;
+				/* Fondo claro */
+			}
+
+			th,
+			td {
+				padding: 8px;
+				text-align: left;
+			}
+
+			tr:nth-child(odd) {
+				background-color: #ffeeba;
+				/* Amarillo pastel para filas impares */
+			}
+
+			tr:nth-child(even) {
+				background-color: white;
+				/* Blanco para filas pares */
+			}
+		</style>
 
 </head>
 
 <body>
 
 	<h1>Bienvenido a mi blog</h1>
-	<h1>q maz c pone aki?</h1>
 
+	<table>
+		<thead>
+			<!Abro fila>
+				<tr>
+					<!titulos columnas>
+						<th>ID</th>
+						<th>Nombre</th>
+						<th>Apellido</th>
+						<th>Cedula</th>
+				</tr>
+		</thead>
+		<hbody>
+			<tr th:each="propietario:${propietarios}">
+				<td th:text="${propietario.id}">
+				<td th:text="${propietario.nombre}">
+				<td th:text="${propietario.apellido}">
+				<td th:text="${propietario.cedula}">
+				</td>
+			</tr>
+		</hbody>
+	</table>
 </body>
 
 </html>
