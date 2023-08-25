@@ -21,25 +21,25 @@ public class PropietariosController {
 	private IPropietarioService propietarioService;
 
 	
-	@GetMapping("/buscar")
+	@GetMapping("/buscarTodos")
 	public String buscarTodos(Model modelo) {
 		List<Propietario> lista=this.propietarioService.buscarTodos();
 		modelo.addAttribute("propietarios",lista);
-		return"vistaListaPropietarios";
+		return"vistaBuscarTodos";
 	}
 	//http://localhost:8080/concesionario/propietarios/buscarPorID/1
 	@GetMapping("/buscarPorID/{idPropietario}")
 	public String buscarPorId(@PathVariable ("idPropietario")Integer id, Model modelo) {
 		Propietario prop= this.propietarioService.buscarPorId(id);
 		modelo.addAttribute("propietario",prop);
-		return "vistaPropietario";
+		return "vistaBuscarPorID";
 		
 	}
 	
 	@PutMapping("/actualizar/{idPropietario}")
 	public String actualizarPropietario(@PathVariable ("idPropietario")Integer id, Propietario propietario) {
 		this.propietarioService.actualizar(propietario);
-		return "redirect:/propietarios/buscar";
+		return "redirect:/propietarios/buscarTodos";
 	}
 	
 }

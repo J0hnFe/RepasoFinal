@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+
+	<style>
+		body {
+			background-image: url('https://s1.1zoom.me/big3/617/Stars_yuuko-sanNight_451532.jpg');
+			background-size: cover;
+			/* Ajustar la imagen al tamaño de la ventana */
+			background-repeat: no-repeat;
+			/* Evitar que la imagen se repita */
+			background-attachment: fixed;
+			/* Fijar la imagen de fondo al desplazarse */
+		}
+
+		h1 {
+			color: floralwhite;
+			/* Cambia el color del texto a rojo */
+		}
+
+
+		table {
+			width: 50%;
+			border-collapse: collapse;
+			background-color: #f9f9f9;
+			/* Fondo claro */
+		}
+
+		th,
+		td {
+			padding: 8px;
+			text-align: left;
+		}
+
+		tr:nth-child(odd) {
+			background-color: #ffeeba;
+			/* Amarillo pastel para filas impares */
+		}
+
+		tr:nth-child(even) {
+			background-color: white;
+			/* Blanco para filas pares */
+		}
+	</style>
+
+</head>
+
+<body>
+	<h1>Hola mundo</h1>
+	<table>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>NOMBRE</th>
+				<th>APELLIDO</th>
+				<th>CEDULA</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="propietario:${propietarios} ">
+				<td th:text="${propietario.id}"></td>
+				<td th:text="${propietario.nombre}"></td>
+				<td th:text="${propietario.apellido}"></td>
+				<td th:text="${propietario.cedula}"></td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+
+</html>

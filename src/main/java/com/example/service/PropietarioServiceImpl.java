@@ -15,42 +15,36 @@ import jakarta.transaction.Transactional.TxType;
 public class PropietarioServiceImpl implements IPropietarioService{
 
 	@Autowired
-	private IPropietarioRepo iPropietarioRepo;
+	private IPropietarioRepo propietarioRepo;
 	
 	@Override
-	@Transactional(value = TxType.REQUIRES_NEW)
+//	@Transactional(value = TxType.REQUIRES_NEW)
 	public Propietario buscarPorId(Integer id) {
-		// TODO Auto-generated method stub
-		return this.iPropietarioRepo.buscarPorId(id);
+		return this.propietarioRepo.buscarPorId(id);
 	}
 
 	@Override
-	@Transactional(value = TxType.MANDATORY)
-	public void insertar(Propietario propietario) {
-		// TODO Auto-generated method stub
-		this.iPropietarioRepo.insertar(propietario);
+//	@Transactional(value = TxType.MANDATORY)
+	public void agregar(Propietario p) {
+		this.propietarioRepo.insertar(p);
 	}
 
 	@Override
-	@Transactional(value = TxType.REQUIRES_NEW)
-	public void actualizar(Propietario propietario) {
-		// TODO Auto-generated method stub
-		this.iPropietarioRepo.actualizar(propietario);
+	@Transactional(value = TxType.REQUIRED)
+	public void actualizar(Propietario p) {
+		this.propietarioRepo.actualizar(p);
 	}
 
 	@Override
-	@Transactional(value = TxType.MANDATORY)
-	public void eliminar(Integer id) {
-		// TODO Auto-generated method stub
-		this.iPropietarioRepo.eliminar(id);
+//	@Transactional(value = TxType.MANDATORY)
+	public void borrarPorId(Integer id) {
+		this.propietarioRepo.eliminar(id);
 	}
 
 	@Override
-	@Transactional(value = TxType.NOT_SUPPORTED)
+//	@Transactional(value = TxType.NOT_SUPPORTED)
 	public List<Propietario> buscarTodos() {
-		// TODO Auto-generated method stub
-		return this.iPropietarioRepo.buscarTodos();
+		return this.propietarioRepo.buscarTodos();
 	}
 
-	
 }
