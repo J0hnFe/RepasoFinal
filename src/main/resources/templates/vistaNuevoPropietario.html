@@ -33,12 +33,8 @@
 </head>
 
 <body>
-	<form th:action="@{/propietarios/actualizar/{id}(id=${propietario.id})}" th:object="${propietario}" th:method="PUT">
+	<form th:action="@{/propietarios/guardar}" th:object="${propietario}" th:method="POST">
 		<table>
-			<tr>
-				<td><label>ID:</label></td>
-				<td><input type="text" th:field="${propietario.id}"></td>
-			</tr>
 			<tr>
 				<td><label>Nombre:</label></td>
 				<td><input type="text" th:field="${propietario.nombre}"></td>
@@ -52,7 +48,7 @@
 				<td><input type="text" th:field="${propietario.cedula}"></td>
 			</tr>
 		</table>
-		<input type="submit" value="Actualizar">
+		<input type="submit" value="Guardar">
 	</form>
 </body>
 

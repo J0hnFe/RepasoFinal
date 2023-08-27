@@ -12,19 +12,19 @@ import jakarta.transaction.Transactional;
 import jakarta.transaction.Transactional.TxType;
 
 @Service
+//@Transactional
 public class PropietarioServiceImpl implements IPropietarioService{
 
 	@Autowired
 	private IPropietarioRepo propietarioRepo;
 	
 	@Override
-//	@Transactional(value = TxType.REQUIRES_NEW)
 	public Propietario buscarPorId(Integer id) {
 		return this.propietarioRepo.buscarPorId(id);
 	}
 
 	@Override
-//	@Transactional(value = TxType.MANDATORY)
+	@Transactional(value = TxType.REQUIRED)
 	public void agregar(Propietario p) {
 		this.propietarioRepo.insertar(p);
 	}
@@ -36,13 +36,12 @@ public class PropietarioServiceImpl implements IPropietarioService{
 	}
 
 	@Override
-//	@Transactional(value = TxType.MANDATORY)
+	@Transactional(value = TxType.REQUIRED)
 	public void borrarPorId(Integer id) {
 		this.propietarioRepo.eliminar(id);
 	}
 
 	@Override
-//	@Transactional(value = TxType.NOT_SUPPORTED)
 	public List<Propietario> buscarTodos() {
 		return this.propietarioRepo.buscarTodos();
 	}

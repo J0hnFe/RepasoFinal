@@ -32,7 +32,7 @@ public class PropietarioRepoImpl implements IPropietarioRepo{
 	}
 
 	@Override
-	@Transactional(value = TxType.MANDATORY)
+	@Transactional(value = TxType.REQUIRES_NEW)
 	public void actualizar(Propietario propietario) {
 		this.entityManager.merge(propietario);
 	}
@@ -46,7 +46,7 @@ public class PropietarioRepoImpl implements IPropietarioRepo{
 	@Override
 	@Transactional(value = TxType.NOT_SUPPORTED)
 	public List<Propietario> buscarTodos() {
-		TypedQuery<Propietario> myQuery = this.entityManager.createQuery("SELECT e FROM Propietario e",Propietario.class);
+		TypedQuery<Propietario> myQuery = this.entityManager.createQuery("SELECT e FROM Propietario e", Propietario.class);
 		return myQuery.getResultList();
 	}
 }
